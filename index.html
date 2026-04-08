@@ -14,12 +14,13 @@
   @keyframes fadeInDown{0%{opacity:0;transform:translateY(-30px);}100%{opacity:1;transform:translateY(0);}}
   @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
 
+  .highlight{color:#1da1f2;font-weight:700;} /* voor progressief-liberaal highlight */
+
   .tabs{display:flex;justify-content:center;background:#111a2b;}
   .tabs button{flex:1;padding:1rem;cursor:pointer;background:#111a2b;border:none;color:#ccc;font-weight:600;transition:.3s;}
   .tabs button.active, .tabs button:hover{background:#1da1f2;color:#0d1117;}
-  .tab-content{padding:2rem;max-width:900px;margin:0 auto;display:none;animation:fadeIn .5s ease forwards;opacity:0;}
+  .tab-content{padding:2rem;max-width:900px;margin:0 auto;display:none;}
   .tab-content.active{display:block;}
-  @keyframes fadeIn{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
 
   h2{font-size:2rem;color:#1da1f2;margin-bottom:1rem;border-bottom:2px solid #1da1f2;display:inline-block;padding-bottom:.5rem;}
   ul{list-style:none;padding-left:0;}
@@ -38,7 +39,7 @@
 
 <header>
   <h1>Fractie Jan</h1>
-  <p>Modern, progressief & toekomstgericht</p>
+  <p><span class="highlight">Progressief-liberaal</span>, modern & toekomstgericht</p>
 </header>
 
 <div class="tabs">
@@ -51,11 +52,13 @@
 <section id="ideologie" class="tab-content active">
   <h2>Ideologie</h2>
   <ul>
+    <li><span class="highlight">Progressief-liberaal:</span> moderne liberale waarden met focus op vooruitgang en vrijheid</li>
     <li>Transparantie: duidelijk bestuur en open communicatie</li>
     <li>Innovatie: ondersteuning van digitale projecten en startups</li>
     <li>Duurzaamheid: groene energie en milieuverantwoord beleid</li>
     <li>Onderwijs: praktijkgericht en toekomstbestendig</li>
     <li>Jongerenparticipatie: actieve betrokkenheid van jongeren in de samenleving</li>
+    <li>Asielstop: tijdelijk stopzetten van nieuwe asielaanvragen om integratie en beleid te verbeteren</li>
   </ul>
 </section>
 
@@ -91,4 +94,47 @@
       </ul>
     </div>
     <div class="program-item">
-      <h3>Mobiliteit
+      <h3>Mobiliteit</h3>
+      <ul>
+        <li>Veilige fiets- en voetpaden</li>
+        <li>Stimuleren van elektrische voertuigen</li>
+      </ul>
+    </div>
+    <div class="program-item">
+      <h3>Transparantie & Bestuur</h3>
+      <ul>
+        <li>Open data van gemeentelijke besluiten</li>
+        <li>Burgerparticipatie bij belangrijke beslissingen</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="leider" class="tab-content">
+  <h2>Partijleider</h2>
+  <p>Jan</p>
+</section>
+
+<section id="contact" class="tab-content">
+  <h2>Contact</h2>
+  <p>Discord username: <strong>@jzxsetup</strong></p>
+</section>
+
+<footer>
+  &copy; 2026 Fractie Jan – Alle rechten voorbehouden
+</footer>
+
+<script>
+const tabs = document.querySelectorAll('.tab-link');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
